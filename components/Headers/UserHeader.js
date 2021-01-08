@@ -11,10 +11,6 @@ class UserHeader extends React.Component {
           className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
           style={{
             minHeight: "600px",
-            // backgroundImage:
-            //   "url(" + require("assets/img/theme/profile-cover.jpg") + ")",
-            // backgroundSize: "cover",
-            // backgroundPosition: "center top",
           }}
         >
           {/* Mask */}
@@ -27,13 +23,6 @@ class UserHeader extends React.Component {
                 <p className="text-white mt-0 mb-5">
                   Me conte o que gostaria de ver aqui.
                 </p>
-                {/* <Button
-                  color="info"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Edit profile
-                </Button> */}
               </Col>
             </Row>
           </Container>

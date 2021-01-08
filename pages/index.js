@@ -5,7 +5,6 @@ export default class Index extends Component {
   componentDidMount = () => {
     Router.push("/auth/login");
   };
-
   render() {
     return <div />;
   }
