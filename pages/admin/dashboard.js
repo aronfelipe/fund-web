@@ -161,7 +161,7 @@ class Dashboard extends React.Component {
                             <span className="d-md-none">M</span>
                           </NavLink>
                         </NavItem>
-                        <NavItem>
+                        {/* <NavItem>
                           <NavLink
                             className={classnames("py-2 px-3", {
                               active: this.state.activeNav === 2,
@@ -173,7 +173,7 @@ class Dashboard extends React.Component {
                             <span className="d-none d-md-block">Ultimos doze meses</span>
                             <span className="d-md-none">W</span>
                           </NavLink>
-                        </NavItem>
+                        </NavItem> */}
                       </Nav>
                     </div>
                   </Row>

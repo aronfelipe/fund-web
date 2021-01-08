@@ -4,31 +4,8 @@ if (typeof window === "undefined") {
 if (typeof document === "undefined") {
   global.document = {};
 }
-/*!
 
-=========================================================
-* NextJS Argon Dashboard - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/nextjs-argon-dashboard
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/nextjs-argon-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 const Chart = require("chart.js");
-//
-// Chart extension for making the bars rounded
-// Code from: https://codepen.io/jedtrow/full/ygRYgo
-//
-
-import axios from "axios";
-
 
 Chart.elements.Rectangle.prototype.draw = function () {
   var ctx = this._chart.ctx;
