@@ -6,6 +6,7 @@ import axios from "axios";
 import {
   Button,
   Card,
+  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -18,6 +19,8 @@ import {
 } from "reactstrap";
 // layout for this page
 import Auth from "layouts/Auth.js";
+
+import URL from '../../config'
 
 class Login extends React.Component {
   constructor(props) {
@@ -41,10 +44,9 @@ class Login extends React.Component {
       password: this.state.password
     }
     axios
-    .post("http://localhost:5000/auth/login", user)
+    .post("http://" + URL.api + ":5000/auth/login", user)
 
     .then(res => {
-      console.log(res);
       if (res.data.status == 200) {
         localStorage.setItem('afund-api-token', res.data.response);
         Router.push('/admin/dashboard')
@@ -118,6 +120,7 @@ class Login extends React.Component {
                   <small>
                     {" "}
                     {this.loginCheck()}
+                    {/* <span className="text-success font-weight-700">{this.state.passwordStrong()}</span> */}
                   </small>
                 </div>
                 <div className="text-center">
@@ -128,6 +131,7 @@ class Login extends React.Component {
               </Form>
             </CardBody>
           </Card>
+
           <Row className="mt-3">
           </Row>
         </Col>

@@ -9,6 +9,8 @@ import { Line } from "react-chartjs-2";
 import Router from 'next/router'
 import axios from "axios";
 
+import URL from '../../config'
+
 // reactstrap components
 import {
   Card,
@@ -64,7 +66,7 @@ class Dashboard extends React.Component {
   componentDidMount = e => {
     const token = localStorage.getItem('afund-api-token')
     axios
-    .get("http://localhost:5000/transfer/consumer",  {headers: {
+    .get("http://" + URL.api + ":5000/transfer/consumer",  {headers: {
       "afund-api-token":  token
     }})
     .then(res => {
@@ -83,7 +85,7 @@ class Dashboard extends React.Component {
       this.setState({transfers: transfers})
       let data = [];
       let labels = [];
-      axios.get("http://localhost:5000/balance/consumer", {headers : {
+      axios.get("http://" + URL.api + ":5000/balance/consumer", {headers : {
         'afund-api-token': token
       }}).then(res => {
         let balances = res.data.response;

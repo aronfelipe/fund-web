@@ -22,6 +22,8 @@ import {
 // layout for this page
 import Auth from "layouts/Auth.js";
 
+import URL from '../../config'
+
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +48,7 @@ class Register extends React.Component {
         password: this.state.password,
       };
       axios
-      .post("http://localhost:5000/auth/register", user)
+      .post("http://" + URL.api + ":5000/auth/register", user)
       .then(Router.push('/auth/login'))
     } else {
       alert("Altere as senhas para que fiquem iguais")

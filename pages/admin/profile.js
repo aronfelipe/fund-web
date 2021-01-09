@@ -18,6 +18,8 @@ import Router from 'next/router'
 
 import axios from "axios";
 
+import URL from '../../config'
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +30,11 @@ class Profile extends React.Component {
 
   componentDidMount = e => {
     const token = localStorage.getItem('afund-api-token')
-    // console.log(token)
     axios
-    .get("http://localhost:5000/user/consumer/profile",  {headers: {
+    .get("http://" + URL.api + ":5000/user/consumer/profile",  {headers: {
       "afund-api-token":  token
     }})
     .then(res => {
-      // console.log(res)
       this.setState({user: res.data.response})}
     )
     .catch(error => {
