@@ -42,7 +42,6 @@ class Register extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-
     if(this.state.email === "") {
       alert("O email não pode estar nulo")
     } else {
