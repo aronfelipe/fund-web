@@ -42,18 +42,22 @@ class Register extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    if (this.state.password === this.state.passwordcheck) {
-      const user = {
-        email: this.state.email,
-        password: this.state.password,
-      };
-      axios
-      .post("http://" + URL.api + ":5000/auth/register", user)
-      .then(Router.push('/auth/login'))
-    } else {
-      alert("Altere as senhas para que fiquem iguais")
-    }
 
+    if(this.state.email === "") {
+      alert("O email não pode estar nulo")
+    } else {
+      if (this.state.password === this.state.passwordcheck) {
+        const user = {
+          email: this.state.email,
+          password: this.state.password,
+        };
+        axios
+        .post("http://" + URL.api + ":5000/auth/register", user)
+        .then(Router.push('/auth/login'))
+      } else {
+        alert("Altere as senhas para que fiquem iguais")
+      }
+    }
   }
 
   passwordDoNotMatch() {
@@ -172,7 +176,7 @@ class Register extends React.Component {
                 </div>
                 <div className="text-center">
                   <Button className="mt-4" color="secondary" type="submit">
-                    Create account
+                    Criar conta
                   </Button>
                 </div>
               </Form>
