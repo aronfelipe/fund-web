@@ -2,6 +2,7 @@
   "name": "afund-web",
   "version": "1.0.0",
   "private": true,
+  "author": "Creative Tim and Aron",
   "scripts": {
     "start": "next start",
     "build": "next build",
