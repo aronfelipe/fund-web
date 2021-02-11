@@ -38,6 +38,7 @@ class Login extends React.Component {
   }
 
   submitForm(e) {
+    console.log("PASSOU")
     e.preventDefault();
     const user = {
       email: this.state.email,
