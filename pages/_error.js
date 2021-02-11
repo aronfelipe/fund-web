@@ -5,7 +5,6 @@ export default class _error extends Component {
   componentDidMount = () => {
     Router.push("/admin/dashboard");
   };
-
   render() {
     return <div />;
   }

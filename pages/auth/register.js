@@ -10,7 +10,6 @@ import Router from 'next/router'
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -18,11 +17,12 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Row,
   Col,
 } from "reactstrap";
 // layout for this page
 import Auth from "layouts/Auth.js";
+
+import URL from '../../config'
 
 class Register extends React.Component {
   constructor(props) {
@@ -42,19 +42,21 @@ class Register extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    // console.log(`Email: ${ this.state.email }`)
-    if (this.state.password === this.state.passwordcheck) {
-      const user = {
-        email: this.state.email,
-        password: this.state.password,
-      };
-      axios
-      .post("http://localhost:5000/auth/register", user)
-      .then(Router.push('/auth/login'))
+    if(this.state.email === "") {
+      alert("O email não pode estar nulo")
     } else {
-      alert("Altere as senhas para que fiquem iguais")
+      if (this.state.password === this.state.passwordcheck) {
+        const user = {
+          email: this.state.email,
+          password: this.state.password,
+        };
+        axios
+        .post("http://" + URL.api + ":5000/auth/register", user)
+        .then(Router.push('/auth/login'))
+      } else {
+        alert("Altere as senhas para que fiquem iguais")
+      }
     }
-
   }
 
   passwordDoNotMatch() {
@@ -103,56 +105,11 @@ class Register extends React.Component {
       <>
         <Col lg="6" md="8">
           <Card className="bg-secondary shadow border-0">
-            {/* <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
-                <small>Sign up with</small>
-              </div>
-              <div className="text-center">
-                <Button
-                  className="btn-neutral btn-icon mr-4"
-                  color="default"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/github.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Github</span>
-                </Button>
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/google.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Google</span>
-                </Button>
-              </div>
-            </CardHeader> */}
             <CardBody className="px-lg-5 py-lg-5">
               <div className="text-center text-muted mb-4">
                 <small>Se registre com seu email e senha</small>
               </div>
               <Form role="form" onSubmit={(e) => {this.submitForm(e)}}>
-                {/* <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Name" type="text" />
-                  </InputGroup>
-                </FormGroup> */}
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">
@@ -193,7 +150,6 @@ class Register extends React.Component {
                   <small>
                     Força da senha:{" "}
                     {this.passwordStrength()}
-                    {/* <span className="text-success font-weight-700">{this.state.passwordStrong()}</span> */}
                   </small>
                 </div>
                 <FormGroup>
@@ -217,34 +173,9 @@ class Register extends React.Component {
                 <div className="text-muted">
                   {this.passwordCheck()}
                 </div>
-                {/* <Row className="my-4">
-                  <Col xs="12">
-                    <div className="custom-control custom-control-alternative custom-checkbox">
-                      <input
-                        className="custom-control-input"
-                        id="customCheckRegister"
-                        type="checkbox"
-                        name="therms"
-                        onChange={ (e) => {
-                          this.handleChange(e)
-                        }}                      />
-                      <label
-                        className="custom-control-label"
-                        htmlFor="customCheckRegister"
-                      >
-                        <span className="text-muted">
-                          I agree with the{" "}
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            Privacy Policy
-                          </a>
-                        </span>
-                      </label>
-                    </div>
-                  </Col>
-                </Row> */}
                 <div className="text-center">
                   <Button className="mt-4" color="secondary" type="submit">
-                    Create account
+                    Criar conta
                   </Button>
                 </div>
               </Form>

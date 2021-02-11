@@ -28,26 +28,7 @@ Router.events.on("routeChangeError", () => {
 });
 
 export default class MyApp extends App {
-  componentDidMount() {
-//     let comment = document.createComment(`
-
-// =========================================================
-// * * NextJS Argon Dashboard v1.0.0 based on Argon Dashboard React v1.1.0
-// =========================================================
-
-// * Product Page: https://www.creative-tim.com/product/nextjs-argon-dashboard
-// * Copyright 2020 Creative Tim (https://www.creative-tim.com)
-// * Licensed under MIT (https://github.com/creativetimofficial/nextjs-argon-dashboard/blob/master/LICENSE.md)
-
-// * Coded by Creative Tim
-
-// =========================================================
-
-// * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-// `);
-    // document.insertBefore(comment, document.documentElement);
-  }
+  
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
