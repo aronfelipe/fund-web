@@ -1,3 +1,3 @@
 export default {
-    api: "localhost"
+    api: "54.208.255.131"
 }
